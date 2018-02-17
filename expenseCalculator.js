@@ -1,8 +1,8 @@
         /************************************************************************************************ 
           Course:  Web Application Development
           Assignment:  Lesson 4 (JavaScript 1)
-          Author:  
-          Date:   
+          Author:  Diego Leon
+          Date:   02/16/18
           Filename: expenseCalculator.js
         *************************************************************************************************/
      
@@ -36,8 +36,9 @@
 
                   var shelterAmt = document.getElementById("shelterInput").value;
                   var foodAmt = document.getElementById("foodInput").value;
-
-
+                  var transportationAmt = document.getElementById("transportationInput").value;
+                  var householdAmt = document.getElementById("householdInput").value;                  
+                  var miscellaneousAmt = document.getElementById("miscellaneousInput").value;
 
 
                   /*************************************************************************************************
@@ -58,9 +59,9 @@
 
                   shelterAmt = parseFloat(shelterAmt);
                   foodAmt = parseFloat(foodAmt);
-
-
-
+                  transportationAmt = parseFloat(transportationAmt);
+                  householdAmt = parseFloat(householdAmt);
+                 miscellaneousAmt = parseFloat(miscellaneousAmt);
 
                   /******************************************************************************************************
                    * Task 4:  Add the additional code needed to declare variables that will store the calculation
@@ -79,11 +80,14 @@
                   var totalExpenses; //total expenses for the user
                   var shelterPct; //shelter category percentage
                   var foodPct;  //food category percentage
+    
+                  var transportationPct;
 
-
-
-
-                  /******************************************************************************************************
+                  var householdPct;
+                 
+                  var miscellaneousPct;
+                 
+                 /******************************************************************************************************
                    * Task 5:  Add the additional code needed to calcuate the total expense and the percentages for each 
                    *          of the NEW categories you've added (Household, Transportation, and Miscellaneous). 
                    *          Use the code below as an example.  The totalExpenses is calculated by adding all the categories
@@ -105,11 +109,17 @@
                    *          Miscellaneous percentage (you must add). The result of the calculations are assigned to the 
                    *          variables declared in Task 4.  
                   *******************************************************************************************************/   
-
+           totalExpenses = shelterAmt + foodAmt + transportationAmt + householdAmt + miscellaneousAmt;
 
                   shelterPct = 100 * (shelterAmt / totalExpenses);
+                  
                   foodPct = 100 * (foodAmt / totalExpenses);
 
+                transportationPct = 100 * (transportationAmt / totalExpenses);
+
+                householdPct = 100 * (householdAmt / totalExpenses);
+                
+                miscellaneousPct = 100 * (miscellaneousAmt / totalExpenses);
 
                   /******************************************************************************************************
                    * Task 6:  Add the additional code needed to display the total expenses and the percentages for each 
@@ -133,9 +143,18 @@
                   *******************************************************************************************************/  
 
                   document.getElementById("totalExpenses").innerHTML = "<b>Total Expenses:     $</b> " + totalExpenses.toFixed(2);
-                  document.getElementById("shelterPercentage").innerHTML = "% for <b>shelter</b>:      " + shelterPct.toFixed(1);      
+                  
+                  document.getElementById("shelterPercentage").innerHTML = "% for <b>shelter</b>:      " + shelterPct.toFixed(1);    
+                  
                   document.getElementById("foodPercentage").innerHTML = "% for <b>food:</b>      " + foodPct.toFixed(1);
 
+                  document.getElementById("transportationPercentage").innerHTML = "% for <b>transportation:</b>      " + transportationPct.toFixed(1);
+
+
+                  document.getElementById("householdPercentage").innerHTML = "% for <b>household:</b>      " + householdPct.toFixed(1);
+
+
+                  document.getElementById("miscellaneousPercentage").innerHTML = "% for <b>miscellaneous:</b>      " + miscellaneousPct.toFixed(1);
 
          } //end of calculatePercentages function
          
@@ -153,9 +172,7 @@
 
                   //This code remove ALL of the expense values the user types into the form (textfields)
                   document.getElementById("expenseCalculator").reset();
-
-
-                  /*************************************************************************************************************
+       /*************************************************************************************************************
                    * Task 7:  Add the additional code needed to remove the expense percentage results displayed in the HTML page
                    *          for each category.  You must add the code to remove the NEW categories you've added (Household, 
                    *          Transportation, and Miscellaneous). Use the code below as an example.  
@@ -168,10 +185,17 @@
 
                   *************************************************************************************************************/                
 
-                  document.getElementById("totalExpenses").innerHTML = ""; 
-                  document.getElementById("shelterPercentage").innerHTML = "";      
-                  document.getElementById("foodPercentage").innerHTML  = "";
+                  document.getElementById("totalExpenses").innerHTML = " "; 
+                  
+                  document.getElementById("shelterPct").innerHTML = " ";     
+                  
+                  document.getElementById("foodPct").innerHTML  = " ";
 
+                  document.getElementById("householdPct").innerHTML  = " ";
+                  
+                  document.getElementById("transportationPct").innerHTML  = " ";
+                  
+                  document.getElementById("miscellaneousPct").innerHTML  = " ";
 
               
          }//end of clearForm function
